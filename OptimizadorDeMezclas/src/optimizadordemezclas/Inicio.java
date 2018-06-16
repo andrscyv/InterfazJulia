@@ -5,17 +5,26 @@
  */
 package optimizadordemezclas;
 
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 /**
  *
  * @author Luigi
  */
 public class Inicio extends javax.swing.JPanel {
 
+    
+    private String[] estado;
+    private String path;
     /**
      * Creates new form Inicio
      */
     public Inicio() {
         initComponents();
+        path = System.getProperty("user.dir");
     }
 
     /**
@@ -30,36 +39,38 @@ public class Inicio extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        btnCalcula = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
+        txLinea = new javax.swing.JLabel();
+        txB1n = new javax.swing.JLabel();
+        txB1c = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
+        txB1x = new javax.swing.JLabel();
+        txCst = new javax.swing.JLabel();
+        txTemp = new javax.swing.JLabel();
+        txCp = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
+        txGrado = new javax.swing.JLabel();
+        txB2n = new javax.swing.JLabel();
+        txB2c = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
-        jLabel43 = new javax.swing.JLabel();
-        jLabel44 = new javax.swing.JLabel();
-        jLabel45 = new javax.swing.JLabel();
+        txB2x = new javax.swing.JLabel();
+        txColor = new javax.swing.JLabel();
+        txVol = new javax.swing.JLabel();
+        txCpM = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(36, 47, 65));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -76,13 +87,21 @@ public class Inicio extends javax.swing.JPanel {
         jTextField1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
         jTextField1.setBorder(null);
-        jTextField1.setOpaque(false);
         jTextField1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTextField1MouseClicked(evt);
             }
         });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 64, 39));
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 70, 39));
+
+        btnCalcula.setText("Calcular");
+        btnCalcula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalculaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCalcula, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, -1, -1));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 70, -1));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 740));
 
@@ -116,20 +135,21 @@ public class Inicio extends javax.swing.JPanel {
         jLabel10.setText("B1 Código:");
         add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 290, -1, -1));
 
-        jLabel14.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel14.setText("blebleble");
-        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, -1, -1));
+        txLinea.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        txLinea.setForeground(new java.awt.Color(204, 204, 204));
+        txLinea.setText("blebleble");
+        txLinea.setName("txLinea"); // NOI18N
+        add(txLinea, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, -1, -1));
 
-        jLabel15.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel15.setText("blebleble");
-        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, -1, -1));
+        txB1n.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        txB1n.setForeground(new java.awt.Color(204, 204, 204));
+        txB1n.setText("blebleble");
+        add(txB1n, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, -1, -1));
 
-        jLabel18.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel18.setText("blebleble");
-        add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, -1, -1));
+        txB1c.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        txB1c.setForeground(new java.awt.Color(204, 204, 204));
+        txB1c.setText("blebleble");
+        add(txB1c, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, -1, -1));
 
         jLabel20.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(204, 204, 204));
@@ -146,25 +166,25 @@ public class Inicio extends javax.swing.JPanel {
         jLabel22.setText("Temp para CCS:");
         add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 530, -1, -1));
 
-        jLabel26.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel26.setText("blebleble");
-        add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 400, -1, -1));
+        txB1x.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        txB1x.setForeground(new java.awt.Color(204, 204, 204));
+        txB1x.setText("blebleble");
+        add(txB1x, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 400, -1, -1));
 
-        jLabel27.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel27.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel27.setText("blebleble");
-        add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 480, -1, -1));
+        txCst.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        txCst.setForeground(new java.awt.Color(204, 204, 204));
+        txCst.setText("blebleble");
+        add(txCst, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 480, -1, -1));
 
-        jLabel28.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel28.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel28.setText("blebleble");
-        add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 560, -1, -1));
+        txTemp.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        txTemp.setForeground(new java.awt.Color(204, 204, 204));
+        txTemp.setText("blebleble");
+        add(txTemp, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 560, -1, -1));
 
-        jLabel29.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel29.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel29.setText("blebleble");
-        add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 640, -1, -1));
+        txCp.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        txCp.setForeground(new java.awt.Color(204, 204, 204));
+        txCp.setText("blebleble");
+        add(txCp, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 640, -1, -1));
 
         jLabel32.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel32.setForeground(new java.awt.Color(204, 204, 204));
@@ -186,20 +206,20 @@ public class Inicio extends javax.swing.JPanel {
         jLabel35.setText("B2 Código:");
         add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 290, -1, -1));
 
-        jLabel36.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel36.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel36.setText("blebleble");
-        add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 160, -1, -1));
+        txGrado.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        txGrado.setForeground(new java.awt.Color(204, 204, 204));
+        txGrado.setText("blebleble");
+        add(txGrado, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 160, -1, -1));
 
-        jLabel37.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel37.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel37.setText("blebleble");
-        add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 240, -1, -1));
+        txB2n.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        txB2n.setForeground(new java.awt.Color(204, 204, 204));
+        txB2n.setText("blebleble");
+        add(txB2n, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 240, -1, -1));
 
-        jLabel38.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel38.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel38.setText("blebleble");
-        add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 320, -1, -1));
+        txB2c.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        txB2c.setForeground(new java.awt.Color(204, 204, 204));
+        txB2c.setText("blebleble");
+        add(txB2c, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 320, -1, -1));
 
         jLabel39.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel39.setForeground(new java.awt.Color(204, 204, 204));
@@ -216,66 +236,107 @@ public class Inicio extends javax.swing.JPanel {
         jLabel41.setText("Volatilidad:");
         add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 530, -1, -1));
 
-        jLabel42.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel42.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel42.setText("blebleble");
-        add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 400, -1, -1));
+        txB2x.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        txB2x.setForeground(new java.awt.Color(204, 204, 204));
+        txB2x.setText("blebleble");
+        add(txB2x, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 400, -1, -1));
 
-        jLabel43.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel43.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel43.setText("blebleble");
-        add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 480, -1, -1));
+        txColor.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        txColor.setForeground(new java.awt.Color(204, 204, 204));
+        txColor.setText("blebleble");
+        add(txColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 480, -1, -1));
 
-        jLabel44.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel44.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel44.setText("blebleble");
-        add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 560, -1, -1));
+        txVol.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        txVol.setForeground(new java.awt.Color(204, 204, 204));
+        txVol.setText("blebleble");
+        add(txVol, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 560, -1, -1));
 
-        jLabel45.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel45.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel45.setText("blebleble");
-        add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 640, -1, -1));
+        txCpM.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        txCpM.setForeground(new java.awt.Color(204, 204, 204));
+        txCpM.setText("blebleble");
+        add(txCpM, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 640, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField1MouseClicked
         // TODO add your handling code here:
         jTextField1.setText("");
     }//GEN-LAST:event_jTextField1MouseClicked
+    static String readFile(String path, Charset encoding) throws IOException 
+    {
+        //System.out.println(path);
+      byte[] encoded = Files.readAllBytes(Paths.get(path));
+      return new String(encoded, encoding);
+    }
+    private void cargaEstado(){
+       // System.out.println(path);
+        try {
+          String aux = readFile(path+"/../res.txt",Charset.defaultCharset());
+          estado = aux.split(";");
+        }
+        catch(IOException e){
+            System.out.println("Error al leer archivo");
+        }
+        
+    
+    }
+    private void btnCalculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalculaActionPerformed
+        // TODO add your handling code here:
+        cargaEstado();
+        if(estado != null){
+            txLinea.setText(estado[0]);
+            txB1n.setText(estado[1]);
+            txB1c.setText(estado[2]);
+            txB1x.setText(estado[3]);
+            txCst.setText(estado[4]);
+            txTemp.setText(estado[5]);
+            txCp.setText(estado[6]);
+            txGrado.setText(estado[7]);
+            txB2n.setText(estado[8]);
+            txB2c.setText(estado[9]);
+            txB2x.setText(estado[10]);
+            txColor.setText(estado[11]);
+            txVol.setText(estado[12]);
+            txCpM.setText(estado[13]);
+        
+        }
+    }//GEN-LAST:event_btnCalculaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCalcula;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
-    private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel txB1c;
+    private javax.swing.JLabel txB1n;
+    private javax.swing.JLabel txB1x;
+    private javax.swing.JLabel txB2c;
+    private javax.swing.JLabel txB2n;
+    private javax.swing.JLabel txB2x;
+    private javax.swing.JLabel txColor;
+    private javax.swing.JLabel txCp;
+    private javax.swing.JLabel txCpM;
+    private javax.swing.JLabel txCst;
+    private javax.swing.JLabel txGrado;
+    private javax.swing.JLabel txLinea;
+    private javax.swing.JLabel txTemp;
+    private javax.swing.JLabel txVol;
     // End of variables declaration//GEN-END:variables
 }
