@@ -5,6 +5,7 @@
  */
 package optimizadordemezclas;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
@@ -38,7 +39,7 @@ public class Inicio extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        inCodigoProd = new javax.swing.JTextField();
         btnCalcula = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
@@ -83,16 +84,16 @@ public class Inicio extends javax.swing.JPanel {
         jLabel1.setText("Código de producto");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 110, -1, -1));
 
-        jTextField1.setBackground(new java.awt.Color(97, 212, 195));
-        jTextField1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.setBorder(null);
-        jTextField1.addMouseListener(new java.awt.event.MouseAdapter() {
+        inCodigoProd.setBackground(new java.awt.Color(97, 212, 195));
+        inCodigoProd.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        inCodigoProd.setForeground(new java.awt.Color(255, 255, 255));
+        inCodigoProd.setBorder(null);
+        inCodigoProd.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField1MouseClicked(evt);
+                inCodigoProdMouseClicked(evt);
             }
         });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 70, 39));
+        jPanel1.add(inCodigoProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 70, 39));
 
         btnCalcula.setText("Calcular");
         btnCalcula.addActionListener(new java.awt.event.ActionListener() {
@@ -257,10 +258,10 @@ public class Inicio extends javax.swing.JPanel {
         add(txCpM, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 640, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField1MouseClicked
+    private void inCodigoProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inCodigoProdMouseClicked
         // TODO add your handling code here:
-        jTextField1.setText("");
-    }//GEN-LAST:event_jTextField1MouseClicked
+        inCodigoProd.setText("");
+    }//GEN-LAST:event_inCodigoProdMouseClicked
     static String readFile(String path, Charset encoding) throws IOException 
     {
         //System.out.println(path);
@@ -270,7 +271,7 @@ public class Inicio extends javax.swing.JPanel {
     private void cargaEstado(){
        // System.out.println(path);
         try {
-          String aux = readFile(path+"/../res.txt",Charset.defaultCharset());
+          String aux = readFile(path+"\\producto.txt",Charset.defaultCharset());
           estado = aux.split(";");
         }
         catch(IOException e){
@@ -281,29 +282,39 @@ public class Inicio extends javax.swing.JPanel {
     }
     private void btnCalculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalculaActionPerformed
         // TODO add your handling code here:
-        cargaEstado();
-        if(estado != null){
-            txLinea.setText(estado[0]);
-            txB1n.setText(estado[1]);
-            txB1c.setText(estado[2]);
-            txB1x.setText(estado[3]);
-            txCst.setText(estado[4]);
-            txTemp.setText(estado[5]);
-            txCp.setText(estado[6]);
-            txGrado.setText(estado[7]);
-            txB2n.setText(estado[8]);
-            txB2c.setText(estado[9]);
-            txB2x.setText(estado[10]);
-            txColor.setText(estado[11]);
-            txVol.setText(estado[12]);
-            txCpM.setText(estado[13]);
-        
+        try{ 
+            Runtime rt = Runtime.getRuntime();
+            System.out.println(path);
+            Process pr = rt.exec("julia codPrueba.jl.txt "+inCodigoProd.getText());
+            cargaEstado();
+            if(estado != null){
+                txLinea.setText(estado[0]);
+                txB1n.setText(estado[3]);
+                txB1c.setText(estado[4]);
+                txB1x.setText(estado[5]);
+                txCst.setText(estado[9]);
+                txTemp.setText(estado[10]);
+                txCp.setText(estado[11]);   
+                txGrado.setText(estado[1]);
+                txB2n.setText(estado[6]);
+                txB2c.setText(estado[7]);
+                txB2x.setText(estado[8]);
+                txColor.setText(estado[12]);
+                txVol.setText(estado[13]);
+                txCpM.setText(estado[14]);
+
+            }
         }
+        catch(IOException e){
+            System.out.println(e.getMessage());
+        }
+        
     }//GEN-LAST:event_btnCalculaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalcula;
+    private javax.swing.JTextField inCodigoProd;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -323,7 +334,6 @@ public class Inicio extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel txB1c;
     private javax.swing.JLabel txB1n;
     private javax.swing.JLabel txB1x;

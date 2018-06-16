@@ -1,0 +1,4 @@
+Basicos,costo_unitario_mxn_kg,cantidad_kg,costo_por_basico
+3017,5,37941.0,189705.0
+3601,8,0.0,0.0
+3553,9,62059.0,558531.0
