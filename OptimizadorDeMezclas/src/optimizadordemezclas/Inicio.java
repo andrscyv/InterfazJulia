@@ -286,6 +286,7 @@ public class Inicio extends javax.swing.JPanel {
             Runtime rt = Runtime.getRuntime();
             System.out.println(path);
             Process pr = rt.exec("julia codPrueba.jl.txt "+inCodigoProd.getText());
+            pr.waitFor();
             cargaEstado();
             if(estado != null){
                 txLinea.setText(estado[0]);
@@ -305,7 +306,7 @@ public class Inicio extends javax.swing.JPanel {
 
             }
         }
-        catch(IOException e){
+        catch(Exception e){
             System.out.println(e.getMessage());
         }
         
