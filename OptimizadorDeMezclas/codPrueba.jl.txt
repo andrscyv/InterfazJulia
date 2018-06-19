@@ -1,4 +1,4 @@
-# Optimization formulation for oil manufacturing
+﻿# Optimization formulation for oil manufacturing
 #
 using JuMP, AmplNLWriter, CoinOptServices, DataFrames, CSV
 
@@ -452,12 +452,12 @@ if Z == 0
 
 #println("el costo total de mezcla de basicos con la formulaci�n optimizada es ", round(Z*1e5), " pesos" )    
 answer = DataFrame(Basicos = new_code, costo_unitario_mxn_kg = new_cost, cantidad_kg = new_basics, costo_por_basico = total_cost)
-#println(answer)
+println(answer)
 #println(answer[1])
 CSV.write("tablaRes.txt",answer)
 valoresInter = string(valoresInter,";",round(Z*1e5))
 #abre el archivo en el que est� las variables de la interfaz
-println("Se corrió el programa")
+#println("Se corrió el programa")
 println(Z)
 archivo = open("valoresRes.txt","w")
 write(archivo, valoresInter)
