@@ -14,6 +14,7 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 
 /**
@@ -47,6 +48,9 @@ public class Inicio extends javax.swing.JPanel {
         resultados[9] = txCUBa3;
         resultados[10] = txCanBa3;
         resultados[11] = txCpBa3;
+        ArrayList<String> itemsCombo = Utils.generaCol("formulaciones.csv", 3);
+        for(String s : itemsCombo)
+            combo.addItem(s);
         
         
     }
@@ -63,9 +67,9 @@ public class Inicio extends javax.swing.JPanel {
         jSeparator4 = new javax.swing.JSeparator();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        inCodigoProd = new javax.swing.JTextField();
         btnCalcula = new javax.swing.JButton();
         txCpM = new javax.swing.JLabel();
+        combo = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -145,17 +149,6 @@ public class Inicio extends javax.swing.JPanel {
         jLabel1.setText("Código de producto");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 110, -1, -1));
 
-        inCodigoProd.setBackground(new java.awt.Color(255, 51, 51));
-        inCodigoProd.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        inCodigoProd.setText("####");
-        inCodigoProd.setBorder(null);
-        inCodigoProd.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                inCodigoProdMouseClicked(evt);
-            }
-        });
-        jPanel1.add(inCodigoProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 60, 39));
-
         btnCalcula.setText("Calcular");
         btnCalcula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,6 +161,8 @@ public class Inicio extends javax.swing.JPanel {
         txCpM.setForeground(new java.awt.Color(204, 204, 204));
         txCpM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/optimizadordemezclas/logo.png"))); // NOI18N
         jPanel1.add(txCpM, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
+
+        jPanel1.add(combo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, -1, -1));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 740));
 
@@ -467,11 +462,6 @@ public class Inicio extends javax.swing.JPanel {
         txCostMez1.setForeground(new java.awt.Color(204, 204, 204));
         add(txCostMez1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void inCodigoProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inCodigoProdMouseClicked
-        // TODO add your handling code here:
-        inCodigoProd.setText("");
-    }//GEN-LAST:event_inCodigoProdMouseClicked
     static String readFile(String path, Charset encoding) throws IOException 
     {
         //System.out.println(path);
@@ -492,10 +482,11 @@ public class Inicio extends javax.swing.JPanel {
     }
     private void btnCalculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalculaActionPerformed
         // TODO add your handling code here:
+        System.out.println(combo.getSelectedItem());
         try{ 
             Runtime rt = Runtime.getRuntime();
             System.out.println(path);
-            Process pr = rt.exec("julia codPrueba.jl.txt "+inCodigoProd.getText());
+            Process pr = rt.exec("julia codPrueba.jl.txt "+combo.getSelectedItem());
 //            //pr.waitFor();
 //              ProcessBuilder builder = new ProcessBuilder("julia", "codPrueba.jl.txt" + inCodigoProd.getText());
 //              builder.redirectErrorStream(true);
@@ -567,7 +558,7 @@ public class Inicio extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalcula;
-    private javax.swing.JTextField inCodigoProd;
+    private javax.swing.JComboBox<String> combo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;

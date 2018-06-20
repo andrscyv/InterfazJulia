@@ -87,4 +87,34 @@ public class Utils {
     
     }
     
+    public static ArrayList<String> generaCol(String path, int col){
+    
+        File file = new File(path);
+        String lin = "";
+        ArrayList<String> res = new ArrayList<String>();
+        String[] aux;
+
+        try {
+
+            Scanner sc = new Scanner(file);
+            sc.nextLine();
+            while (sc.hasNextLine()) {
+                lin = sc.nextLine();
+                aux = lin.split(",");
+                //System.out.println(aux);
+                 res.add(aux[col-1]);
+                //System.out.println(lin);
+            }
+            sc.close();
+        } 
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        
+        //System.out.println(res);
+    
+        return res;
+        
+    }
+    
 }
