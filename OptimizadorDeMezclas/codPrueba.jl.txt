@@ -448,6 +448,24 @@ cost_no_opt = costo[1]*product[6]*demanda[1] + costo[2]*product[9]*demanda[1]
 valoresInter = cost_no_opt
 
 if Z == 0
+
+    letreroNA = "Basicos,costo_unitario_mxn_kg,cantidad_kg,costo_por_basico
+NA,NA,NA,NA
+NA,NA,NA,NA
+NA,NA,NA,NA"
+
+    archivo1 = open("tablaRes.txt","w")
+    write(archivo1, letreroNA)
+    close(archivo1)
+
+    valoresInter = string(valoresInter,";","NA")
+    #abre el archivo en el que est� las variables de la interfaz
+    #println("Se corrió el programa")
+    println(Z)
+    archivo = open("valoresRes.txt","w")
+    write(archivo, valoresInter)
+    close(archivo)
+
     else 
 
 #println("el costo total de mezcla de basicos con la formulaci�n optimizada es ", round(Z*1e5), " pesos" )    

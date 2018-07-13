@@ -5,6 +5,7 @@
  */
 package optimizadordemezclas;
 
+import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -14,6 +15,7 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 
@@ -49,8 +51,13 @@ public class Inicio extends javax.swing.JPanel {
         resultados[10] = txCanBa3;
         resultados[11] = txCpBa3;
         ArrayList<String> itemsCombo = Utils.generaCol("formulaciones.csv", 3);
+        Collections.sort(itemsCombo);
+        
         for(String s : itemsCombo)
             combo.addItem(s);
+        
+        //Esconde label avio
+        txAviso.setVisible(false);
         
         
     }
@@ -70,6 +77,9 @@ public class Inicio extends javax.swing.JPanel {
         btnCalcula = new javax.swing.JButton();
         txCpM = new javax.swing.JLabel();
         combo = new javax.swing.JComboBox<>();
+        txAviso = new javax.swing.JLabel();
+        lbDemanda = new javax.swing.JLabel();
+        txtDemanda = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -155,14 +165,32 @@ public class Inicio extends javax.swing.JPanel {
                 btnCalculaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCalcula, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, -1, -1));
+        jPanel1.add(btnCalcula, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, -1, -1));
 
         txCpM.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txCpM.setForeground(new java.awt.Color(204, 204, 204));
         txCpM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/optimizadordemezclas/logo.png"))); // NOI18N
-        jPanel1.add(txCpM, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
+        jPanel1.add(txCpM, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, -1, -1));
 
+        combo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                comboKeyPressed(evt);
+            }
+        });
         jPanel1.add(combo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, -1, -1));
+
+        txAviso.setText("Calculando...");
+        txAviso.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                txAvisoComponentShown(evt);
+            }
+        });
+        jPanel1.add(txAviso, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 80, 20));
+
+        lbDemanda.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        lbDemanda.setText("Ingrese la demanda");
+        jPanel1.add(lbDemanda, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
+        jPanel1.add(txtDemanda, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 100, -1));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 740));
 
@@ -483,10 +511,29 @@ public class Inicio extends javax.swing.JPanel {
     private void btnCalculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalculaActionPerformed
         // TODO add your handling code here:
         System.out.println(combo.getSelectedItem());
+        txAviso.setVisible(true);
+        
+    }//GEN-LAST:event_btnCalculaActionPerformed
+
+    private void comboKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_comboKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            txAviso.setVisible(true);
+            System.out.println("set visible");
+               // TODO add your handling code here:
+        
+        
+        }
+            
+    }//GEN-LAST:event_comboKeyPressed
+
+    private void txAvisoComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_txAvisoComponentShown
+        // TODO add your handling code here:
+        System.out.println(combo.getSelectedItem());
         try{ 
             Runtime rt = Runtime.getRuntime();
             System.out.println(path);
-            Process pr = rt.exec("julia codPrueba.jl.txt "+combo.getSelectedItem());
+            Process pr = rt.exec("julia codPrueba.jl.txt "+combo.getSelectedItem() + " " +txtDemanda.getText());
 //            //pr.waitFor();
 //              ProcessBuilder builder = new ProcessBuilder("julia", "codPrueba.jl.txt" + inCodigoProd.getText());
 //              builder.redirectErrorStream(true);
@@ -552,8 +599,8 @@ public class Inicio extends javax.swing.JPanel {
         catch(Exception e){
             System.out.println(e.getMessage());
         }
-        
-    }//GEN-LAST:event_btnCalculaActionPerformed
+        txAviso.setVisible(false);
+    }//GEN-LAST:event_txAvisoComponentShown
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -600,6 +647,8 @@ public class Inicio extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JLabel lbDemanda;
+    private javax.swing.JLabel txAviso;
     private javax.swing.JLabel txB1c;
     private javax.swing.JLabel txB1n;
     private javax.swing.JLabel txB1x;
@@ -629,6 +678,7 @@ public class Inicio extends javax.swing.JPanel {
     private javax.swing.JLabel txLinea;
     private javax.swing.JLabel txTemp;
     private javax.swing.JLabel txVol;
+    private javax.swing.JTextField txtDemanda;
     private javax.swing.JLabel txtValFin;
     // End of variables declaration//GEN-END:variables
 }
