@@ -31,6 +31,7 @@ f = convert(Array{Any,2},formulaciones)
 #lee el c�digo del producto
 #z1 = readstring(archivo)
 z1 = ARGS[1]
+z2 = parse(Float64,ARGS[2])
 
 #cierra el archivo
 #close(archivo)
@@ -249,8 +250,8 @@ volatilityprod_target = product[14]
 #Product demand
 #print("indique cantidad de producto a producir (kg)")
 #demand = parse(Int32,readline(STDIN))
-demanda = [1e05]
-demand = [1e05]
+demanda = z2
+demand = z2
     
 
 # Positive variables

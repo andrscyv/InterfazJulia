@@ -36,20 +36,30 @@ public class Inicio extends javax.swing.JPanel {
         initComponents();
         path = System.getProperty("user.dir");
         
-        resultados = new JLabel[12];
+        resultados = new JLabel[19];
         
-        resultados[0] = txBa1;
-        resultados[1] = txCUBa1;
-        resultados[2] = txCanBa1;
-        resultados[3] = txCpBa1;
-        resultados[4] = txBa2;
-        resultados[5] = txCUBa2;
-        resultados[6] = txCanBa2;
-        resultados[7] = txCpBa2;
-        resultados[8] = txBa3;
-        resultados[9] = txCUBa3;
-        resultados[10] = txCanBa3;
-        resultados[11] = txCpBa3;
+        resultados[0] = txtNomBa1;
+        resultados[1] = txBa1;
+        resultados[2] = txCUBa1;
+        resultados[3] = txCanBa1;
+        resultados[4] = txCpBa1;
+        resultados[5] = txtNomBa2;
+        resultados[6] = txBa2;
+        resultados[7] = txCUBa2;
+        resultados[8] = txCanBa2;
+        resultados[9] = txCpBa2;
+        resultados[10] = txtNomBa3;
+        resultados[11] = txBa3;
+        resultados[12] = txCUBa3;
+        resultados[13] = txCanBa3;
+        resultados[14] = txCpBa3;
+        resultados[15] = txtViscoCin;
+        resultados[16] = txtViscoDin;
+        resultados[17] = txtColor;
+        resultados[18] = txtVola;
+        
+        
+        
         ArrayList<String> itemsCombo = Utils.generaCol("formulaciones.csv", 3);
         Collections.sort(itemsCombo);
         
@@ -80,7 +90,7 @@ public class Inicio extends javax.swing.JPanel {
         txAviso = new javax.swing.JLabel();
         lbDemanda = new javax.swing.JLabel();
         txtDemanda = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        txtCodProd = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -117,11 +127,9 @@ public class Inicio extends javax.swing.JPanel {
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         txBa3 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        txtInfoBas = new javax.swing.JLabel();
         txBa1 = new javax.swing.JLabel();
         txBa2 = new javax.swing.JLabel();
         txCUBa3 = new javax.swing.JLabel();
@@ -147,6 +155,39 @@ public class Inicio extends javax.swing.JPanel {
         txtValFin = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         txCostMez1 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextArea4 = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
+        jSeparator13 = new javax.swing.JSeparator();
+        jLabel15 = new javax.swing.JLabel();
+        txtNomBa1 = new javax.swing.JLabel();
+        txtNomBa2 = new javax.swing.JLabel();
+        txtNomBa3 = new javax.swing.JLabel();
+        jSeparator14 = new javax.swing.JSeparator();
+        jLabel17 = new javax.swing.JLabel();
+        jSeparator15 = new javax.swing.JSeparator();
+        jSeparator16 = new javax.swing.JSeparator();
+        jSeparator17 = new javax.swing.JSeparator();
+        jSeparator18 = new javax.swing.JSeparator();
+        jSeparator19 = new javax.swing.JSeparator();
+        jSeparator20 = new javax.swing.JSeparator();
+        jSeparator21 = new javax.swing.JSeparator();
+        jSeparator22 = new javax.swing.JSeparator();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTextArea5 = new javax.swing.JTextArea();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTextArea6 = new javax.swing.JTextArea();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        txtInfoBas1 = new javax.swing.JLabel();
+        jSeparator23 = new javax.swing.JSeparator();
+        jSeparator24 = new javax.swing.JSeparator();
+        jSeparator25 = new javax.swing.JSeparator();
+        txtViscoCin = new javax.swing.JLabel();
+        txtViscoDin = new javax.swing.JLabel();
+        txtColor = new javax.swing.JLabel();
+        txtVola = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(36, 47, 65));
         setForeground(new java.awt.Color(36, 47, 65));
@@ -170,7 +211,7 @@ public class Inicio extends javax.swing.JPanel {
         txCpM.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txCpM.setForeground(new java.awt.Color(204, 204, 204));
         txCpM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/optimizadordemezclas/logo.png"))); // NOI18N
-        jPanel1.add(txCpM, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, -1, -1));
+        jPanel1.add(txCpM, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, -1, -1));
 
         combo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -192,246 +233,263 @@ public class Inicio extends javax.swing.JPanel {
         jPanel1.add(lbDemanda, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
         jPanel1.add(txtDemanda, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 100, -1));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 740));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 980));
 
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(204, 204, 204));
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 420, -1, -1));
+        txtCodProd.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        txtCodProd.setForeground(new java.awt.Color(204, 204, 204));
+        txtCodProd.setText("bla bla");
+        add(txtCodProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 590, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(204, 204, 204));
         jLabel4.setText("Código del producto:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 390, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 560, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(204, 204, 204));
         jLabel5.setText("CP sin mejorador:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 640, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 810, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(204, 204, 204));
         jLabel8.setText("Línea:");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 390, -1, -1));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 560, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(204, 204, 204));
         jLabel9.setText("B1 Composición:");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 470, -1, -1));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 640, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(204, 204, 204));
         jLabel10.setText("B1 Código:");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 470, -1, -1));
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 640, -1, -1));
 
         txLinea.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txLinea.setForeground(new java.awt.Color(204, 204, 204));
+        txLinea.setText("bla bla");
         txLinea.setName("txLinea"); // NOI18N
-        add(txLinea, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 420, -1, -1));
+        add(txLinea, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 590, -1, -1));
 
         txB1n.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txB1n.setForeground(new java.awt.Color(204, 204, 204));
-        add(txB1n, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 500, -1, -1));
+        txB1n.setText("bla bla");
+        add(txB1n, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 670, -1, -1));
 
         txB1c.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txB1c.setForeground(new java.awt.Color(204, 204, 204));
-        add(txB1c, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 500, -1, -1));
+        txB1c.setText("bla bla");
+        add(txB1c, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 670, -1, -1));
 
         jLabel20.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(204, 204, 204));
         jLabel20.setText("B1 X1:");
-        add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 560, -1, -1));
+        add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 730, -1, -1));
 
         jLabel21.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(204, 204, 204));
         jLabel21.setText("cSt a 100°C:");
-        add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 640, -1, -1));
+        add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 810, -1, -1));
 
         jLabel22.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(204, 204, 204));
         jLabel22.setText("Temp para CCS:");
-        add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 560, -1, -1));
+        add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 730, -1, -1));
 
         txB1x.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txB1x.setForeground(new java.awt.Color(204, 204, 204));
-        add(txB1x, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 590, -1, -1));
+        txB1x.setText("bla bla");
+        add(txB1x, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 760, -1, -1));
 
         txCst.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txCst.setForeground(new java.awt.Color(204, 204, 204));
-        add(txCst, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 670, -1, -1));
+        txCst.setText("bla bla");
+        add(txCst, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 840, -1, -1));
 
         txTemp.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txTemp.setForeground(new java.awt.Color(204, 204, 204));
-        add(txTemp, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 590, -1, -1));
+        txTemp.setText("bla bla");
+        add(txTemp, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 760, -1, -1));
 
         txCp.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txCp.setForeground(new java.awt.Color(204, 204, 204));
-        add(txCp, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 670, -1, -1));
+        txCp.setText("bla bla");
+        add(txCp, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 840, -1, -1));
 
         jLabel32.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel32.setForeground(new java.awt.Color(204, 204, 204));
         jLabel32.setText("CP con mejorador:");
-        add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 640, -1, -1));
+        add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 810, -1, -1));
 
         jLabel33.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(204, 204, 204));
         jLabel33.setText("Grado:");
-        add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 390, -1, -1));
+        add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 560, -1, -1));
 
         jLabel34.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel34.setForeground(new java.awt.Color(204, 204, 204));
         jLabel34.setText("B2 Composición:");
-        add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 470, -1, -1));
+        add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 640, -1, -1));
 
         jLabel35.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel35.setForeground(new java.awt.Color(204, 204, 204));
         jLabel35.setText("B2 Código:");
-        add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 470, -1, -1));
+        add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 640, -1, -1));
 
         txGrado.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txGrado.setForeground(new java.awt.Color(204, 204, 204));
-        add(txGrado, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 420, -1, -1));
+        txGrado.setText("bla bla");
+        add(txGrado, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 590, -1, -1));
 
         txB2n.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txB2n.setForeground(new java.awt.Color(204, 204, 204));
-        add(txB2n, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 500, -1, -1));
+        txB2n.setText("bla bla");
+        add(txB2n, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 670, -1, -1));
 
         txB2c.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txB2c.setForeground(new java.awt.Color(204, 204, 204));
-        add(txB2c, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 500, -1, -1));
+        txB2c.setText("bla bla");
+        add(txB2c, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 670, -1, -1));
 
         jLabel39.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel39.setForeground(new java.awt.Color(204, 204, 204));
         jLabel39.setText("B2 X2:");
-        add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 560, -1, -1));
+        add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 730, -1, -1));
 
         jLabel40.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel40.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel40.setText("Color:");
-        add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 640, -1, -1));
+        jLabel40.setText("Volatilidad");
+        add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 360, -1, -1));
 
         jLabel41.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel41.setForeground(new java.awt.Color(204, 204, 204));
         jLabel41.setText("Volatilidad:");
-        add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 560, -1, -1));
+        add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 730, -1, -1));
 
         txB2x.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txB2x.setForeground(new java.awt.Color(204, 204, 204));
-        add(txB2x, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 590, -1, -1));
+        txB2x.setText("bla bla");
+        add(txB2x, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 760, -1, -1));
 
         txColor.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txColor.setForeground(new java.awt.Color(204, 204, 204));
-        add(txColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 670, -1, -1));
+        txColor.setText("bla bla");
+        add(txColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 840, -1, -1));
 
         txVol.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txVol.setForeground(new java.awt.Color(204, 204, 204));
-        add(txVol, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 590, -1, -1));
+        txVol.setText("bla bla");
+        add(txVol, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 760, -1, -1));
 
         txCpM1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txCpM1.setForeground(new java.awt.Color(204, 204, 204));
-        add(txCpM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 670, -1, -1));
-        add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, 1050, 10));
-        add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 440, 250, -1));
+        txCpM1.setText("bla bla");
+        add(txCpM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 840, -1, -1));
+        add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 530, 1100, 10));
+        add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 590, 250, -1));
 
         jSeparator5.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 380, 10, 60));
+        add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 530, 10, 60));
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel3.setText("Información");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 390, -1, -1));
+        jLabel3.setText("Formulación");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 540, -1, -1));
         add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, 250, -1));
 
         jSeparator7.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 0, 10, 60));
+        add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 60, 10, 80));
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(204, 204, 204));
         jLabel6.setText("Resultados");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel7.setText("Costo por básico");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 30, -1, -1));
-
         txBa3.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txBa3.setForeground(new java.awt.Color(204, 204, 204));
-        add(txBa3, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 210, -1, -1));
-
-        jLabel12.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel12.setText("Costo unitario (mxn/kg)");
-        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 30, -1, -1));
+        txBa3.setText("bla bla");
+        add(txBa3, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 250, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(204, 204, 204));
         jLabel13.setText("Cantidad (kg)");
-        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 30, -1, -1));
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 90, -1, -1));
 
-        jLabel14.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel14.setText("Básicos");
-        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 30, -1, -1));
+        txtInfoBas.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        txtInfoBas.setForeground(new java.awt.Color(204, 204, 204));
+        txtInfoBas.setText("Información de producto");
+        add(txtInfoBas, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 300, -1, -1));
 
         txBa1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txBa1.setForeground(new java.awt.Color(204, 204, 204));
-        add(txBa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 90, -1, -1));
+        txBa1.setText("bla bla");
+        add(txBa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 150, -1, -1));
 
         txBa2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txBa2.setForeground(new java.awt.Color(204, 204, 204));
-        add(txBa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 150, -1, -1));
+        txBa2.setText("bla bla");
+        add(txBa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 200, -1, -1));
 
         txCUBa3.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txCUBa3.setForeground(new java.awt.Color(204, 204, 204));
-        add(txCUBa3, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 210, -1, -1));
+        txCUBa3.setText("bla bla");
+        add(txCUBa3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 250, -1, -1));
 
         txCUBa1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txCUBa1.setForeground(new java.awt.Color(204, 204, 204));
-        add(txCUBa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 90, -1, -1));
+        txCUBa1.setText("bla bla");
+        add(txCUBa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 150, -1, -1));
 
         txCUBa2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txCUBa2.setForeground(new java.awt.Color(204, 204, 204));
-        add(txCUBa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 150, -1, -1));
+        txCUBa2.setText("bla bla");
+        add(txCUBa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 200, -1, -1));
 
         txCanBa3.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txCanBa3.setForeground(new java.awt.Color(204, 204, 204));
-        add(txCanBa3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 210, -1, -1));
+        txCanBa3.setText("bla bla");
+        add(txCanBa3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 250, -1, -1));
 
         txCanBa1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txCanBa1.setForeground(new java.awt.Color(204, 204, 204));
-        add(txCanBa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 90, -1, -1));
+        txCanBa1.setText("bla bla");
+        add(txCanBa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 150, -1, -1));
 
         txCanBa2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txCanBa2.setForeground(new java.awt.Color(204, 204, 204));
-        add(txCanBa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 150, -1, -1));
+        txCanBa2.setText("bla bla");
+        add(txCanBa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 200, -1, -1));
 
         txCpBa3.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txCpBa3.setForeground(new java.awt.Color(204, 204, 204));
-        add(txCpBa3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 210, -1, -1));
+        txCpBa3.setText("bla bla");
+        add(txCpBa3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1290, 250, -1, -1));
 
         txCpBa1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txCpBa1.setForeground(new java.awt.Color(204, 204, 204));
-        add(txCpBa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 90, -1, -1));
+        txCpBa1.setText("bla bla");
+        add(txCpBa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1290, 150, -1, -1));
 
         txCpBa2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txCpBa2.setForeground(new java.awt.Color(204, 204, 204));
-        add(txCpBa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 150, -1, -1));
-        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 60, 650, 10));
+        txCpBa2.setText("bla bla");
+        add(txCpBa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1290, 200, -1, -1));
+        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 60, 750, 10));
 
         jSeparator8.setOrientation(javax.swing.SwingConstants.VERTICAL);
         add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 10, 60));
 
         jSeparator9.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 0, 10, 60));
+        add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 60, 10, 80));
 
         jSeparator10.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 0, 10, 60));
+        add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 60, 10, 80));
 
         jSeparator11.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 0, 10, 60));
+        add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 60, 10, 80));
 
         jSeparator12.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1300, 0, 10, 60));
+        add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1380, 60, 10, 80));
 
         jScrollPane1.setBorder(null);
         jScrollPane1.setForeground(new java.awt.Color(204, 204, 204));
@@ -461,34 +519,202 @@ public class Inicio extends javax.swing.JPanel {
         jTextArea2.setEditable(false);
         jTextArea2.setBackground(new java.awt.Color(36, 47, 65));
         jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        jTextArea2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jTextArea2.setForeground(new java.awt.Color(204, 204, 204));
         jTextArea2.setLineWrap(true);
         jTextArea2.setRows(5);
-        jTextArea2.setText("El costo total de mezcla de básicos sin optimizar la formulación es:");
+        jTextArea2.setText("Costo por      básico\n   (mxn)");
         jTextArea2.setWrapStyleWord(true);
         jTextArea2.setCaretColor(new java.awt.Color(36, 47, 65));
         jTextArea2.setDisabledTextColor(new java.awt.Color(36, 47, 65));
         jScrollPane2.setViewportView(jTextArea2);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 250, 70));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1270, 60, 100, 80));
 
         txCostMez2.setFont(new java.awt.Font("Century Gothic", 2, 24)); // NOI18N
         txCostMez2.setForeground(new java.awt.Color(204, 204, 204));
+        txCostMez2.setText("bla bla");
         add(txCostMez2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, -1, -1));
 
         txtValFin.setFont(new java.awt.Font("Century Gothic", 2, 24)); // NOI18N
         txtValFin.setForeground(new java.awt.Color(204, 204, 204));
-        add(txtValFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 300, -1, -1));
+        txtValFin.setText("bla bla");
+        add(txtValFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 450, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Century Gothic", 3, 24)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(204, 204, 204));
         jLabel16.setText("Ahorro al optimizar:");
-        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 300, -1, -1));
+        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 390, -1, -1));
 
         txCostMez1.setFont(new java.awt.Font("Century Gothic", 2, 24)); // NOI18N
         txCostMez1.setForeground(new java.awt.Color(204, 204, 204));
+        txCostMez1.setText("bla bla");
         add(txCostMez1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, -1, -1));
+
+        jScrollPane4.setBorder(null);
+        jScrollPane4.setForeground(new java.awt.Color(204, 204, 204));
+        jScrollPane4.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
+        jTextArea4.setEditable(false);
+        jTextArea4.setBackground(new java.awt.Color(36, 47, 65));
+        jTextArea4.setColumns(20);
+        jTextArea4.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        jTextArea4.setForeground(new java.awt.Color(204, 204, 204));
+        jTextArea4.setLineWrap(true);
+        jTextArea4.setRows(5);
+        jTextArea4.setText("El costo total de mezcla de básicos sin optimizar la formulación es:");
+        jTextArea4.setWrapStyleWord(true);
+        jTextArea4.setCaretColor(new java.awt.Color(36, 47, 65));
+        jTextArea4.setDisabledTextColor(new java.awt.Color(36, 47, 65));
+        jScrollPane4.setViewportView(jTextArea4);
+
+        add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 250, 70));
+
+        jScrollPane3.setBorder(null);
+        jScrollPane3.setForeground(new java.awt.Color(204, 204, 204));
+        jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane3.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
+        jTextArea3.setEditable(false);
+        jTextArea3.setBackground(new java.awt.Color(36, 47, 65));
+        jTextArea3.setColumns(20);
+        jTextArea3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jTextArea3.setForeground(new java.awt.Color(204, 204, 204));
+        jTextArea3.setLineWrap(true);
+        jTextArea3.setRows(5);
+        jTextArea3.setText(" Viscosidad\n  dinámica \n       (cP)");
+        jTextArea3.setWrapStyleWord(true);
+        jTextArea3.setCaretColor(new java.awt.Color(36, 47, 65));
+        jTextArea3.setDisabledTextColor(new java.awt.Color(36, 47, 65));
+        jScrollPane3.setViewportView(jTextArea3);
+
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 340, 130, 70));
+
+        jSeparator13.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 330, 10, 80));
+
+        jLabel15.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel15.setText("Básicos");
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 90, -1, -1));
+
+        txtNomBa1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        txtNomBa1.setForeground(new java.awt.Color(204, 204, 204));
+        txtNomBa1.setText("bla bla");
+        add(txtNomBa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 150, -1, -1));
+
+        txtNomBa2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        txtNomBa2.setForeground(new java.awt.Color(204, 204, 204));
+        txtNomBa2.setText("bla bla");
+        add(txtNomBa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 200, -1, -1));
+
+        txtNomBa3.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        txtNomBa3.setForeground(new java.awt.Color(204, 204, 204));
+        txtNomBa3.setText("bla bla");
+        add(txtNomBa3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 250, -1, -1));
+        add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 140, 750, 10));
+
+        jLabel17.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel17.setText("Nombre de básico");
+        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 90, -1, -1));
+        add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 140, 750, 10));
+        add(jSeparator16, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 60, 750, 10));
+        add(jSeparator17, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 140, 750, 10));
+        add(jSeparator18, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 60, 750, 10));
+        add(jSeparator19, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 410, 750, 10));
+        add(jSeparator20, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 330, 750, 10));
+
+        jSeparator21.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        add(jSeparator21, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 330, 10, 80));
+
+        jSeparator22.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        add(jSeparator22, new org.netbeans.lib.awtextra.AbsoluteConstraints(1380, 330, 10, 80));
+
+        jScrollPane5.setBorder(null);
+        jScrollPane5.setForeground(new java.awt.Color(204, 204, 204));
+        jScrollPane5.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane5.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
+        jTextArea5.setEditable(false);
+        jTextArea5.setBackground(new java.awt.Color(36, 47, 65));
+        jTextArea5.setColumns(20);
+        jTextArea5.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jTextArea5.setForeground(new java.awt.Color(204, 204, 204));
+        jTextArea5.setLineWrap(true);
+        jTextArea5.setRows(5);
+        jTextArea5.setText("Costo unitario\n   (mxn/kg)");
+        jTextArea5.setWrapStyleWord(true);
+        jTextArea5.setCaretColor(new java.awt.Color(36, 47, 65));
+        jTextArea5.setDisabledTextColor(new java.awt.Color(36, 47, 65));
+        jScrollPane5.setViewportView(jTextArea5);
+
+        add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 70, 140, 70));
+
+        jScrollPane6.setBorder(null);
+        jScrollPane6.setForeground(new java.awt.Color(204, 204, 204));
+        jScrollPane6.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane6.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
+        jTextArea6.setEditable(false);
+        jTextArea6.setBackground(new java.awt.Color(36, 47, 65));
+        jTextArea6.setColumns(20);
+        jTextArea6.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jTextArea6.setForeground(new java.awt.Color(204, 204, 204));
+        jTextArea6.setLineWrap(true);
+        jTextArea6.setRows(5);
+        jTextArea6.setText(" Viscosidad\n cinemática\n(csT @ 100°C)");
+        jTextArea6.setWrapStyleWord(true);
+        jTextArea6.setCaretColor(new java.awt.Color(36, 47, 65));
+        jTextArea6.setDisabledTextColor(new java.awt.Color(36, 47, 65));
+        jScrollPane6.setViewportView(jTextArea6);
+
+        add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 340, 130, 70));
+
+        jLabel42.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel42.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel42.setText("Color:");
+        add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 810, -1, -1));
+
+        jLabel43.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel43.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel43.setText("Color");
+        add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 360, -1, -1));
+
+        txtInfoBas1.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        txtInfoBas1.setForeground(new java.awt.Color(204, 204, 204));
+        txtInfoBas1.setText("Información de básicos");
+        add(txtInfoBas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 30, -1, -1));
+
+        jSeparator23.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        add(jSeparator23, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 60, 10, 80));
+
+        jSeparator24.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        add(jSeparator24, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 330, 10, 80));
+
+        jSeparator25.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        add(jSeparator25, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 330, 10, 80));
+
+        txtViscoCin.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        txtViscoCin.setForeground(new java.awt.Color(204, 204, 204));
+        txtViscoCin.setText("bla bla");
+        add(txtViscoCin, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 440, -1, -1));
+
+        txtViscoDin.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        txtViscoDin.setForeground(new java.awt.Color(204, 204, 204));
+        txtViscoDin.setText("bla bla");
+        add(txtViscoDin, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 440, -1, -1));
+
+        txtColor.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        txtColor.setForeground(new java.awt.Color(204, 204, 204));
+        txtColor.setText("bla bla");
+        add(txtColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 440, -1, -1));
+
+        txtVola.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        txtVola.setForeground(new java.awt.Color(204, 204, 204));
+        txtVola.setText("bla bla");
+        add(txtVola, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 440, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
     static String readFile(String path, Charset encoding) throws IOException 
     {
@@ -496,6 +722,7 @@ public class Inicio extends javax.swing.JPanel {
       byte[] encoded = Files.readAllBytes(Paths.get(path));
       return new String(encoded, encoding);
     }
+    
     private void cargaEstado(){
        // System.out.println(path);
         try {
@@ -512,6 +739,29 @@ public class Inicio extends javax.swing.JPanel {
         // TODO add your handling code here:
         System.out.println(combo.getSelectedItem());
         txAviso.setVisible(true);
+        
+        for(int i =0; i<resultados.length; i++){
+            resultados[i].setText("");
+        }
+        
+        txtCodProd.setText("");
+        txLinea.setText("");
+        txB1n.setText("");
+        txB1c.setText("");
+        txB1x.setText("");
+        txCst.setText("");
+        txTemp.setText("");
+        txCp.setText("");   
+        txGrado.setText("");
+        txB2n.setText("");
+        txB2c.setText("");
+        txB2x.setText("");
+        txColor.setText("");
+        txVol.setText("");
+        txCpM1.setText("");
+        txCostMez1.setText("");
+        txCostMez2.setText("");
+        txtValFin.setText("");
         
     }//GEN-LAST:event_btnCalculaActionPerformed
 
@@ -553,7 +803,7 @@ public class Inicio extends javax.swing.JPanel {
 
             cargaEstado();
             if(estado != null){
-                jLabel2.setText(estado[2]);
+                txtCodProd.setText(estado[2]);
                 txLinea.setText(estado[0]);
                 txB1n.setText(estado[3]);
                 txB1c.setText(estado[4]);
@@ -608,11 +858,10 @@ public class Inicio extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> combo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -625,19 +874,37 @@ public class Inicio extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator12;
+    private javax.swing.JSeparator jSeparator13;
+    private javax.swing.JSeparator jSeparator14;
+    private javax.swing.JSeparator jSeparator15;
+    private javax.swing.JSeparator jSeparator16;
+    private javax.swing.JSeparator jSeparator17;
+    private javax.swing.JSeparator jSeparator18;
+    private javax.swing.JSeparator jSeparator19;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator20;
+    private javax.swing.JSeparator jSeparator21;
+    private javax.swing.JSeparator jSeparator22;
+    private javax.swing.JSeparator jSeparator23;
+    private javax.swing.JSeparator jSeparator24;
+    private javax.swing.JSeparator jSeparator25;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
@@ -647,6 +914,10 @@ public class Inicio extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
+    private javax.swing.JTextArea jTextArea4;
+    private javax.swing.JTextArea jTextArea5;
+    private javax.swing.JTextArea jTextArea6;
     private javax.swing.JLabel lbDemanda;
     private javax.swing.JLabel txAviso;
     private javax.swing.JLabel txB1c;
@@ -678,7 +949,17 @@ public class Inicio extends javax.swing.JPanel {
     private javax.swing.JLabel txLinea;
     private javax.swing.JLabel txTemp;
     private javax.swing.JLabel txVol;
+    private javax.swing.JLabel txtCodProd;
+    private javax.swing.JLabel txtColor;
     private javax.swing.JTextField txtDemanda;
+    private javax.swing.JLabel txtInfoBas;
+    private javax.swing.JLabel txtInfoBas1;
+    private javax.swing.JLabel txtNomBa1;
+    private javax.swing.JLabel txtNomBa2;
+    private javax.swing.JLabel txtNomBa3;
     private javax.swing.JLabel txtValFin;
+    private javax.swing.JLabel txtViscoCin;
+    private javax.swing.JLabel txtViscoDin;
+    private javax.swing.JLabel txtVola;
     // End of variables declaration//GEN-END:variables
 }
