@@ -62,6 +62,30 @@ public class Utils {
         return res;
     }
     
+    public static ArrayList<String[]> getDataFromCsv(String path, boolean saltarHeader){
+        ArrayList<String[]> res = new ArrayList<String[]>();
+        File file = new File(path);
+        String lin = "";
+        List<String> aux;
+
+        try {
+
+            Scanner sc = new Scanner(file);
+            if(saltarHeader && sc.hasNextLine())
+                sc.nextLine();
+            while (sc.hasNextLine()) {
+                lin = sc.nextLine();
+                res.add(lin.split(","));
+            }
+            sc.close();
+        } 
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        
+        
+        return res;   
+    }
     public static String[] leeValRes(String path){
         File file = new File(path);
             String lin = "";

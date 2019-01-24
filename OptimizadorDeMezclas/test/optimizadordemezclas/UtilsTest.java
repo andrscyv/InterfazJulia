@@ -42,4 +42,34 @@ public class UtilsTest {
         assertArrayEquals(expResult, result);
     }
     
+    /**
+     * Test of getDataFromCsv method, of class Utils.
+     */
+    @Test
+    public void testGetDataFromCsv() {
+        System.out.println("");
+        System.out.println("");
+        System.out.println("==============================================");
+        System.out.println("==============GET_DATA_FROM_CSV===============");
+        System.out.println("==============================================");
+        System.out.println("");
+        System.out.println("");
+        ArrayList<String[]> res = Utils.getDataFromCsv("basicos_optimizados", false);
+        for(String[] lin : res){
+            for( String cel : lin)
+                System.out.print(cel + ", ");
+            System.out.println("");
+        }
+        System.out.println("");
+        System.out.println("");
+        
+        System.out.println("==============================================");
+        System.out.println("==============================================");
+        System.out.println("==============================================");
+        
+        System.out.println("");
+        System.out.println("");
+        
+        //assertArrayEquals(expResult, result);
+    }
 }
